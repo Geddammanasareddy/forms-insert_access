@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>INSERTING_ACCESSRECORDS</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <select name="name" id="name">
+                {% for to in name %}
+                <option value="{{to}}">{{to.name}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+
+            <label for="author">Author</label>
+            <input type="text" name="author" id="author">
+            <br><br>
+            <label for="date">Author</label>
+            <input type="date" name="date" id="date">
+            <br><br>
+            
+
+
+            <input type="submit" value="inserting_Accessrecords">
+
+
+
+        </form>
+
+    </center>
+</body>
+</html>
