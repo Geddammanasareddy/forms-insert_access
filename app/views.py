@@ -52,6 +52,34 @@ def insert_access(request):
 
 
 
+def retrive_data(request):
+    LTO=Topic.objects.all()
+    d={'topics':LTO}
+    if request.method=='POST':
+        td=request.POST.getlist('topic')
+        print(td)
+        webqueryset=Webpage.objects.none()
+
+        for i in td:
+            webqueryset=webqueryset|Webpage.objects.filter(topic_name=i)
+        d1={'webpages':webqueryset}
+        return render(request,'display_webpage.html',d1)
+    return render(request,'retrive_data.html',d)
+
+
+
+def check_box(request):
+    LTO=Topic.objects.all()
+    d={'topics':LTO}
+    return render(request,'check_box.html',d)
+
+def radio_buttons(request):
+    LTO=Topic.objects.all()
+    d={'topics':LTO}
+    return render(request,'radio_buttons.html',d)
+
+
+
 
 
 
